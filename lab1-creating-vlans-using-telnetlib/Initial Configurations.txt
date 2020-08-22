@@ -1,0 +1,65 @@
+-----------------------------
+Network Automation Appliances
+------------------------------
+
+# Static config for eth0
+#auto eth0
+#iface eth0 inet static
+#	address 192.168.0.2
+#	netmask 255.255.255.0
+#	gateway 192.168.0.1
+#	up echo nameserver 192.168.0.1 > /etc/resolv.conf
+
+# DHCP config for eth0
+auto eth0
+iface eth0 inet dhcp
+
+-----------------------------
+CiscoIOSvL2-1 SWITCH
+-----------------------------
+
+enable
+conf t
+int vlan 1
+ip addr 192.168.0.50 255.255.255.0
+no shut
+exit
+!
+hostname SW1
+ip domain name axiom.com.pk
+ip ssh version 2
+!
+line vty 0 4
+login local
+transport input all
+exit
+!
+username admin pri 15 password cisco
+crypto key generate rsa modulus 1024
+end
+!
+
+------------------------------
+CiscoIOSv-1 ROUTER
+------------------------------
+
+enable
+conf t
+int g0/1
+ip addr dhcp
+no shut
+exit
+!
+hostname R1
+ip domain name axiom.com.pk
+ip ssh version 2
+!
+line vty 0 4
+login local
+transport input all
+exit
+!
+username admin pri 15 password cisco
+crypto key generate rsa modulus 1024
+end
+!
