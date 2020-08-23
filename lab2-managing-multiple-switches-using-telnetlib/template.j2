@@ -1,16 +1,16 @@
-{% for switch in switches %}
+{% for device in devices %}
  !!!---------------------------
- !!!Configuring {{switch.host}}
+ !!!Configuring {{device.host}}
  !!!---------------------------
  enable
  conf t
- int vlan 1
- ip addr {{switch.ip}} 255.255.255.0
+ int {{device.interface}}
+ ip addr {{device.ip}} {{device.mask}}
  no shut
  exit
  !
- hostname {{switch.host}}
- ip domain name {{switch.domain}}
+ hostname {{device.host}}
+ ip domain name {{device.domain}}
  ip ssh version 2
  !
  line vty 0 4
@@ -18,9 +18,8 @@
  transport input all
  exit
  !
- username {{switch.username}} pri 15 password {{switch.password}}
+ username {{device.username}} pri 15 password {{device.password}}
  crypto key generate rsa modulus 1024
  end
  !
 {% endfor %}
-
