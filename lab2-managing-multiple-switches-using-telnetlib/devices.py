@@ -51,6 +51,6 @@ devices = [
         "password": "cisco",
         "ip": "dhcp",
         "mask": "",
-        "interface" : "g0/0"
+        "interface" : "g0/1"
     }
 ]
