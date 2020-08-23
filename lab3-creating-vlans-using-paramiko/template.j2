@@ -1,0 +1,27 @@
+{% for switch in switches %}
+ !!!---------------------------
+ !!!Configuring {{switch.host}}
+ !!!---------------------------
+ enable
+ conf t
+ int vlan 1
+ ip addr {{switch.ip}} 255.255.255.0
+ no shut
+ exit
+ !
+ hostname {{switch.host}}
+ ip domain name {{switch.domain}}
+ ip ssh version 2
+ !
+ line vty 0 4
+ login local
+ transport input all
+ exit
+ !
+ username {{switch.username}} pri 15 password {{switch.password}}
+ crypto key generate rsa modulus 1024
+ end
+ !
+ write memory
+{% endfor %}
+
