@@ -48,4 +48,5 @@ for device in devices:
     net_connect.send_command('write memory')
     output = net_connect.send_command('show vlan br')
     print(output)
+    net_connect.disconnect()
 

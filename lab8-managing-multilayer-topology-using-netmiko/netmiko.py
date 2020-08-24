@@ -52,6 +52,7 @@ for c in core_sw:
     print("Configuring Core Switch: ", c['host'], "...")
     output = net_connect.send_config_set(core_sw_commands)
     net_connect.send_command('write memory')
+    net_connect.disconnect()
     print(output)
 
 
@@ -61,4 +62,4 @@ for a in access_sw:
     output = net_connect.send_config_set(access_sw_commands)
     net_connect.send_command('write memory')
     print(output)
-
+    net_connect.disconnect()
