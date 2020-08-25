@@ -1,0 +1,27 @@
+{% for device in devices %}
+ !!!---------------------------
+ !!!Configuring {{device.host}}
+ !!!---------------------------
+ enable
+ conf t
+ int {{device.interface}}
+ ip addr {{device.ip}} {{device.mask}}
+ no shut
+ exit
+ !
+ hostname {{device.host}}
+ ip domain name {{device.domain}}
+ ip ssh version 2
+ !
+ line vty 0 4
+ login local
+ transport input all
+ exit
+ !
+ username {{device.username}} pri 15 password {{device.password}}
+ crypto key generate rsa modulus 1024
+ end
+ !
+ write memory
+ !
+{% endfor %}

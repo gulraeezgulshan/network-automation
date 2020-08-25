@@ -1,0 +1,156 @@
+
+ !!!---------------------------
+ !!!Configuring R1
+ !!!---------------------------
+ enable
+ conf t
+ int GigabitEthernet0/0
+ ip addr 192.168.0.51 255.255.255.0
+ no shut
+ exit
+ !
+ hostname R1
+ ip domain name axiom.com.pk
+ ip ssh version 2
+ !
+ line vty 0 4
+ login local
+ transport input all
+ exit
+ !
+ username admin pri 15 password cisco
+ crypto key generate rsa modulus 1024
+ end
+ !
+ write memory
+ !
+
+ !!!---------------------------
+ !!!Configuring R2
+ !!!---------------------------
+ enable
+ conf t
+ int GigabitEthernet0/0
+ ip addr 192.168.0.52 255.255.255.0
+ no shut
+ exit
+ !
+ hostname R2
+ ip domain name axiom.com.pk
+ ip ssh version 2
+ !
+ line vty 0 4
+ login local
+ transport input all
+ exit
+ !
+ username admin pri 15 password cisco
+ crypto key generate rsa modulus 1024
+ end
+ !
+ write memory
+ !
+
+ !!!---------------------------
+ !!!Configuring R3
+ !!!---------------------------
+ enable
+ conf t
+ int GigabitEthernet0/0
+ ip addr 192.168.0.53 255.255.255.0
+ no shut
+ exit
+ !
+ hostname R3
+ ip domain name axiom.com.pk
+ ip ssh version 2
+ !
+ line vty 0 4
+ login local
+ transport input all
+ exit
+ !
+ username admin pri 15 password cisco
+ crypto key generate rsa modulus 1024
+ end
+ !
+ write memory
+ !
+
+ !!!---------------------------
+ !!!Configuring R4
+ !!!---------------------------
+ enable
+ conf t
+ int GigabitEthernet0/0
+ ip addr 192.168.0.54 255.255.255.0
+ no shut
+ exit
+ !
+ hostname R4
+ ip domain name axiom.com.pk
+ ip ssh version 2
+ !
+ line vty 0 4
+ login local
+ transport input all
+ exit
+ !
+ username admin pri 15 password cisco
+ crypto key generate rsa modulus 1024
+ end
+ !
+ write memory
+ !
+
+ !!!---------------------------
+ !!!Configuring R5
+ !!!---------------------------
+ enable
+ conf t
+ int GigabitEthernet0/0
+ ip addr 192.168.0.55 255.255.255.0
+ no shut
+ exit
+ !
+ hostname R5
+ ip domain name axiom.com.pk
+ ip ssh version 2
+ !
+ line vty 0 4
+ login local
+ transport input all
+ exit
+ !
+ username admin pri 15 password cisco
+ crypto key generate rsa modulus 1024
+ end
+ !
+ write memory
+ !
+
+ !!!---------------------------
+ !!!Configuring R6
+ !!!---------------------------
+ enable
+ conf t
+ int GigabitEthernet0/0
+ ip addr 192.168.0.56 255.255.255.0
+ no shut
+ exit
+ !
+ hostname R6
+ ip domain name axiom.com.pk
+ ip ssh version 2
+ !
+ line vty 0 4
+ login local
+ transport input all
+ exit
+ !
+ username admin pri 15 password cisco
+ crypto key generate rsa modulus 1024
+ end
+ !
+ write memory
+ !
