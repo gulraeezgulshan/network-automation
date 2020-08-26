@@ -1,0 +1,26 @@
+ !!!---------------------------
+ !!!Configuring R1
+ !!!---------------------------
+ enable
+ conf t
+ int GigabitEthernet0/0
+ ip addr 192.168.0.51 255.255.255.0
+ no shut
+ exit
+ !
+ hostname R1
+ ip domain name axiom.com.pk
+ ip ssh version 2
+ ip scp server enable
+ !
+ line vty 0 4
+ login local
+ transport input all
+ exit
+ !
+ username admin pri 15 password cisco
+ crypto key generate rsa modulus 1024
+ end
+ !
+ write memory
+ !
